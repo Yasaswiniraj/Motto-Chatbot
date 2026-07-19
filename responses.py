@@ -6,6 +6,8 @@ def get_response(user_input):
         "hello": "Hi there! 😊",
         "hey": "Hey! How can I help you?",
         "morning": "Good morning! ☀️",
+        "night": "Good night! 🌙",
+        "who are you": "I'm Motto,friendly chatbot. 🤖",
         "how are you": "I'm doing great! Thanks for asking. 😊",
         "what is your name": "I'm Motto, your friendly chatbot.",
         "who made you": "I was built by Yasaswini using Python. 🚀",

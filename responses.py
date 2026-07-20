@@ -7,7 +7,7 @@ def get_response(user_input):
         "hey": "Hey! How can I help you?",
         "morning": "Good morning! ☀️",
         "night": "Good night! 🌙",
-        "who are you": "I'm Motto,friendly chatbot. 🤖",
+        "who are you": "I'm Motto, your friendly chatbot. 🤖",
         "how are you": "I'm doing great! Thanks for asking. 😊",
         "what is your name": "I'm Motto, your friendly chatbot.",
         "who made you": "I was built by Yasaswini using Python. 🚀",
@@ -16,22 +16,29 @@ def get_response(user_input):
         "thanks": "Happy to help!",
     }
 
+    # Exact match
     if message in responses:
         return responses[message]
 
-    if "college" in message:
-        return "College life is full of learning and fun!"
+    # Greetings
+    if any(word in message for word in ["hi", "hello", "hey"]):
+        return "Hello! 👋"
 
-    if "python" in message:
-        return "Python is one of the easiest and most powerful programming languages."
+    # Goodbye
+    if any(word in message for word in ["bye", "goodbye", "see you"]):
+        return "Goodbye! Have a great day! 👋"
 
+    # Python
+    if any(word in message for word in ["python", "py"]):
+        return "Python is an easy and powerful programming language."
+
+    # Java
     if "java" in message:
-        return "Java is widely used for software development and DSA."
+        return "Java is excellent for DSA and backend development."
 
-    if "weather" in message:
-        return "Sorry, I can't check live weather yet."
+    # Thanks
+    if any(word in message for word in ["thank", "thanks"]):
+        return "You're welcome! 😊"
 
-    if "time" in message:
-        return "I can't tell the current time yet."
-
-    return "I'm sorry, I don't understand that yet. 🤔"
+    # Default response
+    return "I'm not sure how to answer that yet. Could you ask something else?"

@@ -1,19 +1,25 @@
 # 🤖 Motto Chatbot
 
-Motto Chatbot is a beginner-friendly Python chatbot that simulates natural conversations using predefined responses. It is designed to help users interact with a simple conversational AI while serving as a foundation for building more advanced chatbots in the future.
+Motto Chatbot is a beginner-friendly conversational chatbot built with **Python**. It simulates natural conversations using rule-based responses while incorporating simple memory features to create a more personalized user experience.
 
-This project is part of my journey in learning Python, software development, and artificial intelligence.
+This project is part of my journey in learning **Python, software development, and Artificial Intelligence**, with the goal of gradually evolving it into a fully AI-powered chatbot.
 
 ---
 
 # **✨ Features**
 
 - 💬 Interactive command-line chatbot
-- 👋 Responds to greetings and common conversations
-- 😊 Friendly and engaging responses
-- ⚡ Lightweight and easy to use
-- 📂 Modular code structure for better maintainability
+- 👋 Random greetings for a more natural conversation
+- 😂 Random programming jokes
+- 🌟 Motivational quotes
+- 💻 Answers basic programming-related questions
+- 📅 Displays the current date
+- ⏰ Displays the current time
+- 🧠 Remembers the user's name during the conversation
+- 😊 Personalized greetings using the remembered name
+- ❓ Help command to display available features
 - 🚪 Exit command to end the conversation
+- 📂 Clean and modular project structure
 
 ---
 
@@ -30,11 +36,16 @@ This project is part of my journey in learning Python, software development, and
 ```text
 Motto-Chatbot/
 │
-├── chatbot.py        # Main chatbot logic
-├── responses.py      # Predefined chatbot responses
-├── main.py           # Application entry point
-├── requirements.txt  # Project dependencies
-├── README.md         # Project documentation
+├── data/
+│   ├── greetings.py
+│   ├── jokes.py
+│   └── quotes.py
+│
+├── chatbot.py
+├── responses.py
+├── main.py
+├── requirements.txt
+├── README.md
 └── .gitignore
 ```
 
@@ -62,13 +73,13 @@ python -m venv venv
 
 ## **4. Activate the Virtual Environment**
 
-**Windows**
+### Windows
 
 ```bash
 venv\Scripts\activate
 ```
 
-**macOS/Linux**
+### macOS/Linux
 
 ```bash
 source venv/bin/activate
@@ -88,36 +99,68 @@ python main.py
 
 ---
 
-# **💡 Sample Conversation**
+# **💬 Sample Conversation**
 
 ```text
-=========================================
+==========================================
 🤖 Motto Chatbot
-Type 'exit' to quit.
-=========================================
+Type 'exit' anytime to quit.
+==========================================
 
-You: Hello
-Bot: Hi there! 😊
+You : Hi
+Bot : Hello! 👋
 
-You: What is Python?
-Bot: Python is a powerful and beginner-friendly programming language.
+You : My name is Yasaswini
+Bot : Nice to meet you, Yasaswini! 😊 I'll remember your name while we're chatting.
 
-You: Bye
-Bot: Goodbye! Have a wonderful day! 👋
+You : What is my name?
+Bot : Your name is Yasaswini. 😊
+
+You : Tell me a joke
+Bot : Why do programmers prefer dark mode?
+      Because light attracts bugs! 😂
+
+You : Motivate me
+Bot : Every expert was once a beginner.
+
+You : What time is it?
+Bot : 🕒 Current Time: 09:45 PM
+
+You : Bye
+Bot : Goodbye! Have a wonderful day! 👋
 ```
 
 ---
 
-# **🎯 Future Improvements**
+# **🎯 Current Version**
 
-- 🤖 AI-powered responses using Google Gemini API
-- 💾 Conversation memory
-- 🌐 Web-based chat interface
-- 🎤 Voice input and output
-- 📄 PDF question answering
+### ✅ Version 2.5
+
+Implemented features:
+
+- Rule-based conversation
+- Random greetings
+- Programming jokes
+- Motivational quotes
+- Date & time support
+- Personalized conversation
+- Temporary memory (remembers the user's name while the chatbot is running)
+- Help command
+- Modular code organization
+
+---
+
+# **🚀 Future Improvements**
+
+- 🤖 Integrate Google Gemini API
+- 💾 Permanent memory using JSON/database
+- 🌐 Web interface with Flask
+- 🎤 Voice input
+- 🔊 Voice output
 - 🖼️ Image understanding
-- 🔐 User authentication
-- ☁️ Cloud deployment
+- 📄 PDF question answering
+- 💬 Conversation history
+- ☁️ Deploy online
 
 ---
 
@@ -125,9 +168,17 @@ Bot: Goodbye! Have a wonderful day! 👋
 
 **Yasaswini Raj**
 
-Computer Science Student | Python Enthusiast | AI & Machine Learning Learner
+B.Tech Computer Science Student | Python Enthusiast | AI & Machine Learning Learner
 
 **GitHub:** https://github.com/Yasaswiniraj
+
+---
+
+# **🤝 Contributing**
+
+Contributions, suggestions, and feedback are always welcome.
+
+If you'd like to improve Motto Chatbot, feel free to fork the repository, create a new branch, and submit a pull request.
 
 ---
 
@@ -135,4 +186,4 @@ Computer Science Student | Python Enthusiast | AI & Machine Learning Learner
 
 This project is licensed under the **MIT License**.
 
-Feel free to use, modify, and learn from this project.ss
+Feel free to use, modify, and learn from this project for educational purposes.

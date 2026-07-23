@@ -1,37 +1,62 @@
-# 🤖 Motto Chatbot
+# 🤖 Motto - AI Chatbot
 
-Motto Chatbot is a beginner-friendly conversational chatbot built with **Python**. It simulates natural conversations using rule-based responses while incorporating simple memory features to create a more personalized user experience.
+Motto is a beginner-friendly AI chatbot built with **Python**. It combines **rule-based responses** with **LLM-powered AI** using the **Groq API**, making conversations both fast and intelligent.
 
-This project is part of my journey in learning **Python, software development, and Artificial Intelligence**, with the goal of gradually evolving it into a fully AI-powered chatbot.
-
----
-
-# **✨ Features**
-
-- 💬 Interactive command-line chatbot
-- 👋 Random greetings for a more natural conversation
-- 😂 Random programming jokes
-- 🌟 Motivational quotes
-- 💻 Answers basic programming-related questions
-- 📅 Displays the current date
-- ⏰ Displays the current time
-- 🧠 Remembers the user's name during the conversation
-- 😊 Personalized greetings using the remembered name
-- ❓ Help command to display available features
-- 🚪 Exit command to end the conversation
-- 📂 Clean and modular project structure
+This project was built to learn Python, APIs, software architecture, and AI chatbot development from scratch.
 
 ---
 
-# **🛠️ Tech Stack**
+# 🚀 Features
+
+### 💬 Basic Conversation
+- Greetings
+- Goodbye messages
+- Thank you responses
+- Help command
+
+### 🧠 Smart Memory
+- Remembers your name during the chat
+- Personalized greetings
+- Forget your name command
+
+### 🎯 Built-in Responses
+- Programming (Python, Java, AI)
+- Date
+- Time
+- College
+- Weather
+- Food
+- Music
+- Favorite Color
+
+### 🎲 Random Responses
+- Programming jokes
+- Motivational quotes
+- Friendly greetings
+
+### 🤖 AI Integration
+- Groq API
+- Llama 3.3 70B Versatile Model
+- Intelligent responses for unknown questions
+
+### 🔒 Secure
+- API keys stored using `.env`
+- `.gitignore` prevents secrets from being uploaded
+
+---
+
+# 🛠️ Tech Stack
 
 - Python 3
+- Groq API
+- Llama 3.3 70B Versatile
+- python-dotenv
 - VS Code
 - Git & GitHub
 
 ---
 
-# **📁 Project Structure**
+# 📂 Project Structure
 
 ```text
 Motto-Chatbot/
@@ -41,37 +66,45 @@ Motto-Chatbot/
 │   ├── jokes.py
 │   └── quotes.py
 │
+├── ai.py
 ├── chatbot.py
 ├── responses.py
 ├── main.py
 ├── requirements.txt
 ├── README.md
+├── .env
 └── .gitignore
 ```
 
 ---
 
-# **🚀 Getting Started**
+# ⚙️ Installation
 
-## **1. Clone the Repository**
+## 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/Yasaswiniraj/Motto-Chatbot.git
 ```
 
-## **2. Navigate to the Project Folder**
+---
+
+## 2️⃣ Navigate to the Project
 
 ```bash
 cd Motto-Chatbot
 ```
 
-## **3. Create a Virtual Environment (Optional)**
+---
+
+## 3️⃣ Create Virtual Environment
 
 ```bash
 python -m venv venv
 ```
 
-## **4. Activate the Virtual Environment**
+---
+
+## 4️⃣ Activate Virtual Environment
 
 ### Windows
 
@@ -85,13 +118,29 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-## **5. Install Dependencies**
+---
+
+## 5️⃣ Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## **6. Run the Chatbot**
+---
+
+## 6️⃣ Create a `.env` File
+
+Create a file named `.env` in the project root.
+
+```env
+GROQ_API_KEY=YOUR_API_KEY
+```
+
+Replace `YOUR_API_KEY` with your Groq API key.
+
+---
+
+## 7️⃣ Run the Chatbot
 
 ```bash
 python main.py
@@ -99,13 +148,13 @@ python main.py
 
 ---
 
-# **💬 Sample Conversation**
+# 💬 Sample Conversation
 
 ```text
-==========================================
+=============================================
 🤖 Motto Chatbot
-Type 'exit' anytime to quit.
-==========================================
+Type 'exit' to quit.
+=============================================
 
 You : Hi
 Bot : Hello! 👋
@@ -114,76 +163,118 @@ You : My name is Yasaswini
 Bot : Nice to meet you, Yasaswini! 😊 I'll remember your name while we're chatting.
 
 You : What is my name?
-Bot : Your name is Yasaswini. 😊
+Bot : Your name is Yasaswini.
 
 You : Tell me a joke
 Bot : Why do programmers prefer dark mode?
       Because light attracts bugs! 😂
 
-You : Motivate me
-Bot : Every expert was once a beginner.
+You : Explain Recursion
 
-You : What time is it?
-Bot : 🕒 Current Time: 09:45 PM
-
-You : Bye
-Bot : Goodbye! Have a wonderful day! 👋
+Bot :
+Recursion is a programming technique where a function calls itself...
 ```
 
 ---
 
-# **🎯 Current Version**
+# 📦 Dependencies
 
-### ✅ Version 2.5
+```text
+groq
+python-dotenv
+```
 
-Implemented features:
+---
 
-- Rule-based conversation
+# 🏗️ Project Architecture
+
+```text
+                User
+                  │
+                  ▼
+            Motto Chatbot
+                  │
+      ┌───────────┴───────────┐
+      │                       │
+ Rule-based Engine      AI Engine (Groq)
+      │                       │
+      └───────────┬───────────┘
+                  ▼
+             Final Response
+```
+
+---
+
+# 🎯 Current Version
+
+## Version 3.0
+
+### Completed
+
+- Rule-based chatbot
 - Random greetings
 - Programming jokes
 - Motivational quotes
-- Date & time support
-- Personalized conversation
-- Temporary memory (remembers the user's name while the chatbot is running)
-- Help command
-- Modular code organization
+- Date & Time
+- Temporary memory
+- Modular codebase
+- AI integration with Groq
+- Environment variables
+- Hybrid chatbot architecture
 
 ---
 
-# **🚀 Future Improvements**
+# 🚀 Future Roadmap
 
-- 🤖 Integrate Google Gemini API
-- 💾 Permanent memory using JSON/database
-- 🌐 Web interface with Flask
-- 🎤 Voice input
-- 🔊 Voice output
-- 🖼️ Image understanding
-- 📄 PDF question answering
-- 💬 Conversation history
-- ☁️ Deploy online
+### Version 4
+
+- Flask Web App
+- Beautiful Chat Interface
+- Chat History
+- Persistent Memory
+- Markdown Rendering
+- Voice Input
+- Voice Output
+- File Upload Support
+- Image Understanding
+- User Authentication
+- Database Integration
 
 ---
 
-# **👩‍💻 Author**
+# 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository
+2. Create a new branch
+3. Commit your changes
+4. Push to GitHub
+5. Open a Pull Request
+
+---
+
+# 👩‍💻 Author
 
 **Yasaswini Raj**
 
-B.Tech Computer Science Student | Python Enthusiast | AI & Machine Learning Learner
+B.Tech Computer Science Student
 
-**GitHub:** https://github.com/Yasaswiniraj
+Python • AI • Machine Learning • Open Source
 
----
-
-# **🤝 Contributing**
-
-Contributions, suggestions, and feedback are always welcome.
-
-If you'd like to improve Motto Chatbot, feel free to fork the repository, create a new branch, and submit a pull request.
+GitHub:
+https://github.com/Yasaswiniraj
 
 ---
 
-# **📄 License**
+# ⭐ Support
 
-This project is licensed under the **MIT License**.
+If you enjoyed this project, consider giving it a ⭐ on GitHub!
 
-Feel free to use, modify, and learn from this project for educational purposes.
+It helps others discover the project and motivates further development.
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License.

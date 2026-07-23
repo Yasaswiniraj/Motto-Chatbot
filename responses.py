@@ -4,7 +4,7 @@ from datetime import datetime
 from data.greetings import greetings
 from data.jokes import jokes
 from data.quotes import quotes
-from gemini_api import ask_gemini
+from ai import ask_ai
 
 # Temporary memory
 user_name = None
@@ -34,7 +34,7 @@ I can help you with:
 📅 Date
 ⏰ Time
 🧠 Remember your name
-🤖 Answer AI-powered questions
+🤖 AI-powered answers
 
 Commands:
 • My name is ...
@@ -62,7 +62,7 @@ Type 'exit' anytime to quit.
     if "what is my name" in message:
         if user_name:
             return f"Your name is {user_name}. 😊"
-        return "I don't know your name yet. Tell me by saying 'My name is ...'"
+        return "I don't know your name yet. Tell me by saying 'My name is ...'."
 
     if "who am i" in message:
         if user_name:
@@ -112,20 +112,20 @@ Type 'exit' anytime to quit.
 
     if "python" in message:
         return (
-            "Python is a beginner-friendly, powerful programming language "
-            "used in AI, Machine Learning, Web Development, Automation, and more."
+            "Python is a beginner-friendly, powerful programming language used in AI, "
+            "Machine Learning, Web Development, Automation, and more."
         )
 
     if "java" in message:
         return (
-            "Java is an object-oriented programming language widely used for "
-            "DSA, backend development, Android apps, and enterprise software."
+            "Java is an object-oriented programming language widely used for DSA, "
+            "backend development, Android apps, and enterprise software."
         )
 
     if any(word in message for word in ["ai", "artificial intelligence"]):
         return (
-            "Artificial Intelligence enables computers to perform tasks that "
-            "normally require human intelligence, such as learning and problem-solving."
+            "Artificial Intelligence enables computers to perform tasks that normally "
+            "require human intelligence, such as learning and problem-solving."
         )
 
     # ==========================
@@ -150,14 +150,20 @@ Type 'exit' anytime to quit.
         return random.choice(quotes)
 
     # ==========================
-    # Date & Time
+    # Time (Windows Fix)
     # ==========================
 
     if "time" in message:
-        return datetime.now().strftime("🕒 Current Time: %I:%M %p")
+        current_time = datetime.now().strftime("%I:%M %p")
+        return f"Current Time: {current_time}"
+
+    # ==========================
+    # Date (Windows Fix)
+    # ==========================
 
     if "date" in message:
-        return datetime.now().strftime("📅 Today's Date: %d-%m-%Y")
+        today = datetime.now().strftime("%d-%m-%Y")
+        return f"Today's Date: {today}"
 
     # ==========================
     # Miscellaneous
@@ -176,14 +182,11 @@ Type 'exit' anytime to quit.
         return "I enjoy every kind of music—even though I can't actually hear it! 🎵"
 
     # ==========================
-    # Gemini AI
+    # Gemini AI (Fallback)
     # ==========================
 
     try:
-        return ask_gemini(user_input)
+        return ask_ai(user_input)
 
     except Exception as e:
-        return (
-            "😔 Sorry! I couldn't connect to Gemini right now.\n"
-            f"Error: {e}"
-        )
+        return f"Sorry! I couldn't connect to Gemini.\nError: {e}"

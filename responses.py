@@ -4,6 +4,7 @@ from datetime import datetime
 from data.greetings import greetings
 from data.jokes import jokes
 from data.quotes import quotes
+from gemini_api import ask_gemini
 
 # Temporary memory
 user_name = None
@@ -17,10 +18,10 @@ def get_response(user_input):
     responses = {
         "morning": "Good morning! ☀️ Hope you have a wonderful day!",
         "night": "Good night! 🌙 Sweet dreams!",
-        "who are you": "I'm Motto, your friendly chatbot. 🤖",
+        "who are you": "I'm Motto, your friendly AI chatbot. 🤖",
         "what is your name": "My name is Motto. Nice to meet you! 😊",
         "how are you": "I'm doing great! Thanks for asking. 😊",
-        "who made you": "I was built by Yasaswini using Python. 🚀",
+        "who made you": "I was built by Yasaswini using Python and Gemini AI. 🚀",
         "thank you": "You're welcome! 😊",
         "thanks": "Happy to help! 😄",
         "help": """
@@ -32,8 +33,8 @@ I can help you with:
 🌟 Motivation
 📅 Date
 ⏰ Time
-
-✨ I can even remember your name while we're chatting!
+🧠 Remember your name
+🤖 Answer AI-powered questions
 
 Commands:
 • My name is ...
@@ -45,9 +46,9 @@ Type 'exit' anytime to quit.
 """
     }
 
-    # -----------------------------
+    # ==========================
     # Name Memory
-    # -----------------------------
+    # ==========================
 
     if message.startswith("my name is "):
         name = user_input[11:].strip()
@@ -74,16 +75,16 @@ Type 'exit' anytime to quit.
             return "Done! I've forgotten your name. 😊"
         return "I don't know your name yet."
 
-    # -----------------------------
+    # ==========================
     # Exact Responses
-    # -----------------------------
+    # ==========================
 
     if message in responses:
         return responses[message]
 
-    # -----------------------------
+    # ==========================
     # Greetings
-    # -----------------------------
+    # ==========================
 
     if any(word in message for word in ["hi", "hello", "hey"]):
         greeting = random.choice(greetings)
@@ -93,9 +94,9 @@ Type 'exit' anytime to quit.
 
         return greeting
 
-    # -----------------------------
+    # ==========================
     # Goodbye
-    # -----------------------------
+    # ==========================
 
     if any(word in message for word in ["bye", "goodbye", "see you"]):
         return random.choice([
@@ -105,9 +106,9 @@ Type 'exit' anytime to quit.
             "Bye! Keep smiling! 😄"
         ])
 
-    # -----------------------------
+    # ==========================
     # Programming
-    # -----------------------------
+    # ==========================
 
     if "python" in message:
         return (
@@ -127,30 +128,30 @@ Type 'exit' anytime to quit.
             "normally require human intelligence, such as learning and problem-solving."
         )
 
-    # -----------------------------
+    # ==========================
     # College
-    # -----------------------------
+    # ==========================
 
     if "college" in message:
         return "College is a place to learn, explore, build projects, and grow your skills. 🎓"
 
-    # -----------------------------
+    # ==========================
     # Jokes
-    # -----------------------------
+    # ==========================
 
     if "joke" in message:
         return random.choice(jokes)
 
-    # -----------------------------
+    # ==========================
     # Motivation
-    # -----------------------------
+    # ==========================
 
     if any(word in message for word in ["motivate", "motivation", "quote", "inspire"]):
         return random.choice(quotes)
 
-    # -----------------------------
+    # ==========================
     # Date & Time
-    # -----------------------------
+    # ==========================
 
     if "time" in message:
         return datetime.now().strftime("🕒 Current Time: %I:%M %p")
@@ -158,9 +159,9 @@ Type 'exit' anytime to quit.
     if "date" in message:
         return datetime.now().strftime("📅 Today's Date: %d-%m-%Y")
 
-    # -----------------------------
+    # ==========================
     # Miscellaneous
-    # -----------------------------
+    # ==========================
 
     if "weather" in message:
         return "Sorry! I can't check live weather yet. 🌦️"
@@ -174,16 +175,15 @@ Type 'exit' anytime to quit.
     if "music" in message:
         return "I enjoy every kind of music—even though I can't actually hear it! 🎵"
 
-    # -----------------------------
-    # Unknown Responses
-    # -----------------------------
+    # ==========================
+    # Gemini AI
+    # ==========================
 
-    unknown = [
-        "🤔 I'm still learning. Could you ask that differently?",
-        "😊 That's interesting! I don't know the answer yet.",
-        "🚀 I'm learning new things every day!",
-        "💡 Sorry, I don't understand that yet.",
-        "😄 Can you rephrase your question?"
-    ]
+    try:
+        return ask_gemini(user_input)
 
-    return random.choice(unknown)
+    except Exception as e:
+        return (
+            "😔 Sorry! I couldn't connect to Gemini right now.\n"
+            f"Error: {e}"
+        )
